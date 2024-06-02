@@ -2,7 +2,7 @@
 
 Real-time chat using Socket.IO
 
-## System required
+## System Requirements
 
 - [Node.js](https://nodejs.org/)
     - [Socket.IO](https://socket.io/)
