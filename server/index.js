@@ -40,12 +40,15 @@ const getRandomMessage = (callback) => {
 io.on('connection', (socket) => {
   console.log('a user connected');
 
-  socket.on('chat message', (msg) => {
-    io.emit('chat message', msg);
+  socket.on('chat message', (message) => {
+    io.emit('chat message', message);
+
     // チャットボットの応答
-    getRandomMessage((response) => {
-      io.emit('chat message', `Bot: ${response}`);
-    });
+    if(message.source !== 'server') {
+      getRandomMessage((response) => {
+        io.emit('chat message', { text: `Bot: ${response}`, source: 'bot' });
+      });
+    }
   });
 
   socket.on('disconnect', () => {
