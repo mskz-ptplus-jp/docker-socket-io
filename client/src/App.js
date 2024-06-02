@@ -26,7 +26,7 @@ function App() {
     <div>
       <ul>
         {messages.map((message, index) => {
-          return <li key={index}>{message.text}</li>;
+          return <li key={index}>({message.source}) {message.text}</li>;
         })}
       </ul>
       <input value={input} onChange={(e) => setInput(e.target.value)} />

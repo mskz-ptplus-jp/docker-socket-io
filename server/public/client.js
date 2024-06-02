@@ -15,8 +15,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   socket.on('chat message', (message) => {
     const item = document.createElement('li');
-    console.log('client.js socket.on chat message:', message);
-    item.textContent = message.text;
+    item.textContent = `(${message.source}) ${message.text}`;
     messages.appendChild(item);
     window.scrollTo(0, document.body.scrollHeight);
   });
